@@ -15,6 +15,6 @@ public class ScoreScript : MonoBehaviour
     
     void Update()
     {
-        score.text = "Money : " + sV;
+        score.text = "Cash : " + sV;
     }
 }

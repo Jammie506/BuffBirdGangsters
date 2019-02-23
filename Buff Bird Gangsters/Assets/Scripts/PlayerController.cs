@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     private void GetInput()
     {
-        direction = Vector2.zero;
+        direction = Vector2.zero;   
 
         if(Input.GetKey(KeyCode.W))
         {

@@ -16,9 +16,18 @@ public class FireProjectile : MonoBehaviour
     void Update()
     {
         rB.velocity = new Vector2(bulletX, bulletY);
-        void OnBecameInvisible()
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
+            Destroy(col.gameObject);
         }
+    }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

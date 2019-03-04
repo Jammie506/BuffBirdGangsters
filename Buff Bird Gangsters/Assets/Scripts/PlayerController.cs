@@ -8,21 +8,25 @@ public class PlayerController : MonoBehaviour
     private float speed;
 
     private Vector2 direction;
-    public float dir;
+    float dir;
 
     public GameObject poopUp, poopDown, poopRight, poopLeft;
     Vector2 bulletPos;
-    
+
+    public GameObject bullet;
+    Vector2 myPos;
+
 
     void Start()
     {
         
     }
-    
+
     void Update()
     {
         GetInput();
         Move();
+
         if (Input.GetButtonDown("Fire1"))
         {
             Fire();
@@ -80,5 +84,14 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(poopRight, bulletPos, Quaternion.identity);
         }
+
+
+        /*myPos = transform.position;
+        Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector2 direction = target - myPos;
+        direction.Normalize();
+        GameObject projectile = Instantiate(bullet, myPos, Quaternion.identity);
+        GetComponent<Rigidbody2D>().velocity = direction * speed;*/
     }
 }

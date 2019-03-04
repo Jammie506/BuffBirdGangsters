@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction;
     public float dir;
 
+    public GameObject poopUp, poopDown, poopRight, poopLeft;
+    Vector2 bulletPos;
+    
+
     void Start()
     {
         
@@ -19,6 +23,10 @@ public class PlayerController : MonoBehaviour
     {
         GetInput();
         Move();
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Fire();
+        }
     }
 
     public void Move()
@@ -49,6 +57,28 @@ public class PlayerController : MonoBehaviour
         {
             direction += Vector2.right;
             dir = 4;
+        }
+    }
+
+    void Fire()
+    {
+        bulletPos = transform.position;
+        
+        if (dir == 1)
+        {
+            Instantiate(poopUp, bulletPos, Quaternion.identity);
+        }
+        else if (dir == 2)
+        {
+            Instantiate(poopLeft, bulletPos, Quaternion.identity);
+        }
+        else if (dir == 3)
+        {
+            Instantiate(poopDown, bulletPos, Quaternion.identity);
+        }
+        else if (dir == 4)
+        {
+            Instantiate(poopRight, bulletPos, Quaternion.identity);
         }
     }
 }

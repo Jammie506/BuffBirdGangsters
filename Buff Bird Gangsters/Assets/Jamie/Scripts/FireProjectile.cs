@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireProjectile : MonoBehaviour
 {
 
-    public float offset;
+    private float offset;
 
     public GameObject Bullet;
     public Transform ShootPoint;
@@ -13,12 +13,9 @@ public class FireProjectile : MonoBehaviour
     private float TimeBtwShoots;
     public float StartTimeBtwShoots;
 
-    void Start()
-    {
+    public float Offset { get => offset; set => offset = value; }
 
-    }
-
-    void Update()
+    private void Update()
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
